@@ -1,0 +1,31 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches: [ "main" ]   # or "master" depending on your repo
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Generate sitemap.xml
+      uses: cicirello/generate-sitemap@v2
+      with:
+        base-url: "https://YOUR_USERNAME.github.io/YOUR_REPO"   # <-- change this
+
+    - name: Commit sitemap.xml
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add sitemap.xml
+        git commit -m "Update sitemap" || echo "No changes to commit"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.8.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
