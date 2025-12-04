@@ -16,7 +16,7 @@ jobs:
     - name: Generate sitemap.xml
       uses: cicirello/generate-sitemap@v1.10.4
       with:
-        base-url: "https://uiuckiwb.github.io/uiuckiwb.github.io"   # <-- change this
+        base-url-path: "https://uiuckiwb.github.io/uiuckiwb.github.io"   # <-- change this
 
     - name: Commit and push sitemap
       run: |
