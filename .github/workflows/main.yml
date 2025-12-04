@@ -14,9 +14,9 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Generate sitemap.xml
-      uses: cicirello/generate-sitemap@v2
+      uses: cicirello/generate-sitemap@v1.10.4
       with:
-        base-url: "https://YOUR_USERNAME.github.io/YOUR_REPO"   # <-- change this
+        base-url: "https://uiuckiwb.github.io/uiuckiwb.github.io"   # <-- change this
 
     - name: Commit sitemap.xml
       run: |
